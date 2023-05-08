@@ -21,13 +21,13 @@
 title: sunquakes
 email: sunquakes@outlook.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Welcome to Sunquakes, the premier destination for programming enthusiasts! My blog provides a wealth of valuable information and insights on Java, Golang, PHP, and JS, as well as other popular programming languages, frameworks, and tools. Thank you for visiting Sunquakes, and we look forward to sharing our programming knowledge with you!
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://sunquakes.com" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
+twitter_username: sunquakesio
 github_username:  sunquakes
+show_excerpts: true
+excerpt_separator: "<!--more-->"
 
 # Build settings
 theme: minima

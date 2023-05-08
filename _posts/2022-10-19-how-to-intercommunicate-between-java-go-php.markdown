@@ -1,12 +1,14 @@
 ---
 layout: post
 title:  "How to intercommunicate between java/go/php"
-date:   2021-10-19 19:20:20 +0800
+date:   2022-10-19 19:20:20 +0800
+author: Shing 
 categories: rpc
+permalink: /posts/29b4a523/
 ---
 
 I have ever use an php framework named hyperf, php micro service framework implement jsonrpc 2.0, and feel it so cool.
-
+<!--more-->
 So I develop a java and a go component to communicate with it.
 
 Each language has its own advantage. Java, my first language, has abundant library in maven central repository, which can save more time to concentrate to business logic. Otherwise, in big data area, there are many framework coded by java, such as spark and flink. PHP has flexible syntax, which can help us develop an web application quickly. Go is newer than other two language, support coroutine natively and make full use of cpu resource, its own net component can help us run a server easily.
