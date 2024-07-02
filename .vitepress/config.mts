@@ -3,8 +3,14 @@ import { generateSidebar } from 'vitepress-sidebar'
 
 const vitepressSidebarOptions = [
   {
-    scanStartPath: 'posts/linux',
-    resolvePath: '/posts/linux/',
+    scanStartPath: 'posts/backend',
+    resolvePath: '/posts/backend/',
+    useFolderTitleFromIndexFile: true,
+    useTitleFromFileHeading: true
+  },
+  {
+    scanStartPath: 'posts/frontend',
+    resolvePath: '/posts/frontend/',
     useFolderTitleFromIndexFile: true,
     useTitleFromFileHeading: true
   },
@@ -15,7 +21,6 @@ const vitepressSidebarOptions = [
   }
 ]
 
-// https://vitepress.dev/reference/site-config
 export default defineConfig({
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
   title: 'Sunquakes',
@@ -25,10 +30,13 @@ export default defineConfig({
     footer: {
       copyright: 'Copyright © 2024-present Shing Rui'
     },
-    // https://vitepress.dev/reference/default-theme-config
+    search: {
+      provider: 'local'
+    },
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Linux', link: '/posts/linux/install_nfs' },
+      { text: 'Backend', link: '/posts/backend/' },
+      { text: 'Frontend', link: '/posts/frontend/' },
       { text: 'About', link: '/about' }
     ],
 

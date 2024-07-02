@@ -1,7 +1,7 @@
 {
   "name": "sunquakes.github.io",
   "version": "1.0.0",
-  "description": "",
+  "description": "My name is Shing Rui, A full stack developer.",
   "main": "index.js",
   "scripts": {
     "docs:dev": "vitepress dev",
