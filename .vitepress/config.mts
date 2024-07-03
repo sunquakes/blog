@@ -35,7 +35,7 @@ export default defineConfig({
     },
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Backend', link: '/posts/backend/' },
+      { text: 'Backend', link: '/posts/backend/linux/install_nfs' },
       { text: 'Frontend', link: '/posts/frontend/' },
       { text: 'About', link: '/about' }
     ],
