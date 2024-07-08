@@ -12,7 +12,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^20.14.10",
+    "marked": "^13.0.2",
     "vitepress": "^1.2.3",
-    "vitepress-sidebar": "^1.23.2"
+    "vue": "^3.4.31"
   }
 }

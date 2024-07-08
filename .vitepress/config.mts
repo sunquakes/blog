@@ -1,25 +1,22 @@
 import { defineConfig } from 'vitepress'
-import { generateSidebar } from 'vitepress-sidebar'
+import NavSiderbar from './tools/nav-sidebar'
+import fs from 'fs'
+import path from 'path'
 
-const vitepressSidebarOptions = [
-  {
-    scanStartPath: 'posts/backend',
-    resolvePath: '/posts/backend/',
-    useFolderTitleFromIndexFile: true,
-    useTitleFromFileHeading: true
-  },
-  {
-    scanStartPath: 'posts/frontend',
-    resolvePath: '/posts/frontend/',
-    useFolderTitleFromIndexFile: true,
-    useTitleFromFileHeading: true
-  },
-  {
-    scanStartPath: 'about',
-    resolvePath: '/about/',
-    useTitleFromFileHeading: true
+const navSiderbar = new NavSiderbar({
+  entry: './posts',
+  collapsed: true,
+  ignoreFiles: ['index.md']
+})
+
+const sidebar = navSiderbar.getNavDeep('/posts', 'posts')
+fs.writeFile('posts' + path.sep + 'index.json', JSON.stringify(sidebar), (err) => {
+  if (err) {
+    console.error('Error wrote posts list.', err)
+  } else {
+    console.info('Successfully wrote posts list.')
   }
-]
+})
 
 export default defineConfig({
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
@@ -35,12 +32,10 @@ export default defineConfig({
     },
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Backend', link: '/posts/backend/linux/install_nfs' },
-      { text: 'Frontend', link: '/posts/frontend/' },
+      ...navSiderbar.getNav('/posts'),
       { text: 'About', link: '/about' }
     ],
-
-    sidebar: generateSidebar(vitepressSidebarOptions),
+    sidebar: navSiderbar.getSidebar('/posts'),
     socialLinks: [{ icon: 'github', link: 'https://github.com/sunquakes' }]
   }
 })

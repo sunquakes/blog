@@ -11,11 +11,8 @@ hero:
     alt: Sunquakes 
   actions:
     - theme: brand
-      text: Backend
-      link: /posts/backend/
-    - theme: brand
-      text: Frontend
-      link: /posts/frontend/
+      text: All Posts
+      link: /posts/
     - theme: alt
       text: Github
       link: https://github.com/sunquakes
