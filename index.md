@@ -21,7 +21,7 @@ features:
   - icon: 📤
     title: Share My Experience
     details: >
-      Sharing insights and knowledge gained from years of hands-on experience in the field. 
+      Sharing knowledge gained from years of hands-on experience in the field. 
   - icon: 📚
     title: Learn New Things
     details: >
