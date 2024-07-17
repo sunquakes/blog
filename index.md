@@ -7,7 +7,7 @@ hero:
   text: "My name is Shing Rui, A full stack developer."
   tagline: "Make programming easier and faster"
   image:
-    src: /assets/logo.svg
+    src: /assets/logo.png
     alt: Sunquakes 
   actions:
     - theme: brand
