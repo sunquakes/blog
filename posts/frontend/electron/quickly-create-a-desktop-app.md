@@ -35,6 +35,18 @@ cd <your-project-name>
 yarn
 ```
 
+### Start development
+
+```bash
+yarn dev
+```
+
+### Build project
+
+```bash
+yarn build
+```
+
 ## More about electron-kits
 
 Visit [ekits.sunquakes.com](https://ekits.sunquakes.com).
