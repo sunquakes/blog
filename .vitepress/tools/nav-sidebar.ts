@@ -147,25 +147,24 @@ export default class NavSiderbar {
             link: prefixPath + '/' + text + '/' + subFolderText + '/' + firstFile
           }
         })
-        const fileItems = this.getFilterCurMDFile(dir).map((item) => {
-          const subFileText = this.getFileNameByPath(item)
-          const fullFilePath = dir + path.sep + item
-          return {
-            text: this.formatText(this.getTitleFromMDFile(fullFilePath), 'nav', 'file'),
-            link: prefixPath + '/' + text + '/' + subFileText
-          }
-        })
-        arr.push({
-          text: this.formatText(this.capitalizeFirstLetter(text), 'nav', 'dir'),
-          items: [...fileItems, ...folderItems]
-        })
+        if (folderItems.length > 0) {
+          arr.push({
+            text: this.formatText(this.capitalizeFirstLetter(text), 'nav', 'dir'),
+            items: [...folderItems]
+          })
+        } else {
+          const firstFile = this.getFilterCurMDFile(dir)[0]
+          arr.push({
+            text: this.formatText(this.capitalizeFirstLetter(text), 'nav', 'dir'),
+            link: prefixPath + '/' + text + '/' + firstFile
+          })
+        }
       }
     })
-    let files: string[] = []
-    if (
-      (files = this.getFilterCurMDFile(docsPath).map((item) => this.getFileNameByPath(item)))
-        .length > 0
-    ) {
+    let files: string[] = this.getFilterCurMDFile(docsPath).map((item) =>
+      this.getFileNameByPath(item)
+    )
+    if (files.length > 0) {
       files.forEach((item) => {
         arr.push({
           text: this.formatText(this.capitalizeFirstLetter(item), 'nav', 'file'),
@@ -199,20 +198,22 @@ export default class NavSiderbar {
                 text: this.formatText(this.capitalizeFirstLetter(item), 'sidebar', 'dir'),
                 link: propName + subText + '/' + item + '/'
               })),
-              ...this.getFilterCurMDFile(subFolderPath).map((item) => {
-                const fullFilePath = subFolderPath + path.sep + item
-                return {
-                  text: this.formatText(this.getTitleFromMDFile(fullFilePath), 'sidebar', 'file'),
-                  link: propName + subText + '/' + this.getFileNameByPath(item)
-                }
-              })
+              ...this.getFilterCurMDFile(subFolderPath)
+                .sort()
+                .map((item) => {
+                  const fullFilePath = subFolderPath + path.sep + item
+                  return {
+                    text: this.formatText(this.getTitleFromMDFile(fullFilePath), 'sidebar', 'file'),
+                    link: propName + subText + '/' + this.getFileNameByPath(item)
+                  }
+                })
             ]
           }
         })
         sidebar[propName] = [...folderItems]
         const subFiles = this.getFilterCurMDFile(dir)
         if (subFiles.length > 0) {
-          subFiles.forEach((item) => {
+          subFiles.reverse().forEach((item) => {
             const fullFilePath = dir + path.sep + item
             if (Array.isArray(sidebar[propName])) {
               sidebar[propName].unshift({
@@ -255,11 +256,10 @@ export default class NavSiderbar {
         items: [...fileItems, ...folderItems]
       })
     })
-    let files: string[] = []
-    if (
-      (files = this.getFilterCurMDFile(docsPath).map((item) => this.getFileNameByPath(item)))
-        .length > 0
-    ) {
+    let files: string[] = this.getFilterCurMDFile(docsPath).map((item) =>
+      this.getFileNameByPath(item)
+    )
+    if (files.length > 0) {
       files.forEach((item) => {
         const fullFilePath = prefixPath + path.sep + item + '.md'
         arr.push({
