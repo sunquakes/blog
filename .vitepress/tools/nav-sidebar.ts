@@ -203,7 +203,7 @@ export default class NavSiderbar {
                 .map((item) => {
                   const fullFilePath = subFolderPath + path.sep + item
                   return {
-                    text: this.formatText(this.getTitleFromMDFile(fullFilePath), 'sidebar', 'file'),
+                    text: '- ' + this.formatText(this.getTitleFromMDFile(fullFilePath), 'sidebar', 'file'),
                     link: propName + subText + '/' + this.getFileNameByPath(item)
                   }
                 })
@@ -217,7 +217,7 @@ export default class NavSiderbar {
             const fullFilePath = dir + path.sep + item
             if (Array.isArray(sidebar[propName])) {
               sidebar[propName].unshift({
-                text: this.formatText(this.getTitleFromMDFile(fullFilePath), 'sidebar', 'dir'),
+                text: '- ' + this.formatText(this.getTitleFromMDFile(fullFilePath), 'sidebar', 'dir'),
                 link: propName + item
               })
             }
